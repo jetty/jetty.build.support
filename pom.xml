@@ -2,69 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>jetty-toolchain</artifactId>
     <groupId>org.eclipse.jetty.toolchain</groupId>
-    <version>1.7</version>
+    <artifactId>jetty-toolchain</artifactId>
+    <version>1.8-parent-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-build-support</artifactId>
-  <packaging>jar</packaging>
   <version>1.6-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <name>Jetty Toolchain :: Build Support</name>
   <description>Build Support for Jetty (Contains Enforcer Rules, PMD Rulesets, etc ...)</description>
+  <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
+    <connection>scm:git:https://github.com/jetty/${jetty.git.repo}.git</connection>
+    <developerConnection>scm:git:git@github.com:eclipse/${jetty.git.repo}.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/jetty/${jetty.git.repo}</url>
+  </scm>
   <properties>
+    <jetty.git.repo>jetty.build.support</jetty.git.repo>
+    <!-- license check is skip historically -->
+    <license.skip>true</license.skip>
   </properties>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.3.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.1</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.6.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.1</version>
-        <configuration>
-          <useReleaseProfile>true</useReleaseProfile>
-          <releaseProfiles>eclipse-release</releaseProfiles>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
   <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>3.9.2</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.maven.enforcer</groupId>
       <artifactId>enforcer-api</artifactId>
@@ -73,13 +36,8 @@
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-shade-plugin</artifactId>
-      <version>3.5.0</version>
+      <version>${maven.shade.plugin.version}</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>3.9.2</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
@@ -94,11 +52,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <scm>
-    <connection>scm:git:https://github.com/eclipse/jetty.toolchain.git</connection>
-    <developerConnection>scm:git:git@github.com:eclipse/jetty.toolchain.git</developerConnection>
-    <url>https://github.com/eclipse/jetty.toolchain/tree/master/jetty-build-support</url>
-    <tag>jetty-build-support-1.5</tag>
-  </scm>
 </project>
-
