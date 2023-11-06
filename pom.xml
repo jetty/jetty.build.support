@@ -95,9 +95,9 @@
     </dependency>
   </dependencies>
   <scm>
-    <connection>scm:git:https://github.com/eclipse/jetty.toolchain.git</connection>
-    <developerConnection>scm:git:git@github.com:eclipse/jetty.toolchain.git</developerConnection>
-    <url>https://github.com/eclipse/jetty.toolchain/tree/master/jetty-build-support</url>
+    <connection>scm:git:https://github.com/jetty/jetty-build-support.git</connection>
+    <developerConnection>scm:git:git@github.com:jetty/jetty-build-support.git</developerConnection>
+    <url>https://github.com/jetty/jetty-build-support</url>
     <tag>jetty-build-support-1.5</tag>
   </scm>
 </project>
