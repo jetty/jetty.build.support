@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.eclipse.jetty</groupId>
     <artifactId>jetty-parent</artifactId>
-    <version>26</version>
+    <version>27</version>
   </parent>
   <artifactId>jetty-build-support</artifactId>
   <version>1.6-SNAPSHOT</version>
